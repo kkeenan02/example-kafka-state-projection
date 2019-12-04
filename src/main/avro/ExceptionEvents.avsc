@@ -1,0 +1,41 @@
+[
+    {
+        "type": "record",
+        "name": "SingleRecord",
+        "namespace": "myapp.schema",
+        "doc": "Generic schema",
+        "fields": [
+            { "name": "subType", "type": "string"},
+            { "name": "field", "type": ["null", "string"]},
+            { "name": "message", "type": ["null", "string"], "default": "this is a string"},
+            { "name": "className", "type": ["null", "string"], "default": "this is a class"}
+        ]
+    },
+    {
+        "type":"record",
+        "name":"MultiRecord",
+        "namespace":"myapp.schema",
+        "doc": "Another schema",
+        "fields":[
+            {"name": "uuid","type":"string"},
+            {"name": "timestamp","type":"long"},
+            {"name": "offset","type":"int"},
+            {"name": "data", "type":["null","string"], "default":"raw data"},
+            {"name": "applicationName","type":"string","default":"appName"},
+            {"name": "gitBranch","type":"string","default":"master"},
+            {"name": "gitHash","type":"string","default":"randomgithash"},
+            {"name": "Id","type":["null","string"],"default":"notNothing"},
+            {"name": "records","type":[{"type":"array","items":"myapp.schema.SingleRecord"},"null"]}
+        ]
+    },
+    {
+        "type": "record",
+        "name": "StateKey",
+        "namespace": "myapp.schema",
+        "doc": "Key for aggregating state",
+        "fields": [
+            {"name":"uuid","type":"string"},
+            {"name":"offset","type":"int"}
+        ]
+    }
+]
